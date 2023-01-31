@@ -1,0 +1,19 @@
+<h2>Index Page</h2>
+<h1 align = "center">All Projects</h1>
+<% @project.each do |project|%>
+  <br>
+  <div align="center" class = "row ">
+    <div class = "col-md-12 center">
+      <h4>Title:<%=link_to project.title, project_path(project)%></h4>
+      <p>Description:<%= truncate(project.description, length: 70)%></p>
+      
+      <%=link_to "Edit this Project", edit_project_path(project), class: "btn btn-primary " %>
+      <%=link_to "Delete this Project", project_path(project), class:"btn btn-primary ", data: {"turbo-method": :delete}, method: :delete %>
+      </div>
+    </div>
+  </div>
+ 
+<%end%>
+ <br>
+
+
